@@ -1,6 +1,6 @@
 {
   "name": "asbi-testing-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A node-based FHIR server to be used for testing alcohol screening and brief intervention (ASBI) clinical decision support (CDS).",
   "main": "index.js",
   "license": "Apache-2.0",
