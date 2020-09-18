@@ -8,7 +8,7 @@ const adapter = new FileSync('./src/services/database.json');
 const db = low(adapter);
 
 module.exports.search = async (args, context) => {
-  let QuestionnaireResponse = require(resolveSchema(args.base_version, 'questionnaireresponse'));
+  let QuestionnaireResponse = resolveSchema(args.base_version, 'questionnaireresponse');
   let patientID = args['patient'];
   let result = await db.get('resources').filter({ 
     resourceType: 'QuestionnaireResponse',
@@ -21,7 +21,7 @@ module.exports.search = async (args, context) => {
 };
 
 module.exports.searchById = async (args, context) => {
-  let QuestionnaireResponse = require(resolveSchema(args.base_version, 'questionnaireresponse'));
+  let QuestionnaireResponse = resolveSchema(args.base_version, 'questionnaireresponse');
   let questionnaireResponseId = args['id'];
   let result = await db.get('resources').find({ 
     resourceType: 'QuestionnaireResponse',
@@ -31,7 +31,7 @@ module.exports.searchById = async (args, context) => {
 };
 
 module.exports.create = async (args, context) => {
-  let QuestionnaireResponse = require(resolveSchema(args.base_version, 'questionnaireresponse'));
+  let QuestionnaireResponse = resolveSchema(args.base_version, 'questionnaireresponse');
   QuestionnaireResponse.id = uuidv4();
   let doc = new QuestionnaireResponse(context.req.body).toJSON();
   await db.get('resources').push(doc).write();

@@ -7,7 +7,7 @@ const adapter = new FileSync('./src/services/database.json');
 const db = low(adapter);
 
 module.exports.search = async (args, context) => {
-  let Condition = require(resolveSchema(args.base_version, 'condition'));
+  let Condition = resolveSchema(args.base_version, 'condition');
   let patientID = args['patient'];
   let result = await db.get('resources').filter({ 
     resourceType: 'Condition',
@@ -20,7 +20,7 @@ module.exports.search = async (args, context) => {
 };
 
 module.exports.searchById = async (args, context) => {
-  let Condition = require(resolveSchema(args.base_version, 'condition'));
+  let Condition = resolveSchema(args.base_version, 'condition');
   let conditionId = args['id'];
   let result = await db.get('resources').find({ 
     resourceType: 'Condition',
