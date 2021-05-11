@@ -21,7 +21,11 @@ Asymmetrik's [node-fhir-server-core](https://github.com/Asymmetrik/node-fhir-ser
 Additional resources will be exposed as needed to support ASBI CDS testing.
 
 ### OAuth2
-The [express-oauth-server](https://github.com/oauthjs/express-oauth-server) provides an OAuth2 endpoint required for the SMART on FHIR<sup>&reg;</sup> connection between the FHIR<sup>&reg;</sup> API and the [ASBI CDS Screening App](https://github.com/asbi-cds-tools/asbi-screening-app). **Note that password authentication has been disabled since this is meant for `localhost` testing only.**
+The [express-oauth-server](https://github.com/oauthjs/express-oauth-server) provides an OAuth2 endpoint required for the SMART on FHIR<sup>&reg;</sup> connection between the FHIR<sup>&reg;</sup> API and the [ASBI CDS Screening App](https://github.com/asbi-cds-tools/asbi-screening-app).
+
+#### Notes
+- **Password authentication has been disabled since this is meant for insecure `localhost` testing only.**
+- **Issues such as [the following](https://github.com/advisories/GHSA-2fw4-mgq9-39cx) are mitigated by the fact that `asbi-testing-server` is not meant to be used in production.**
 
 ### Database
 A flat JSON file is being used as the database from which the FHIR API pulls data.
